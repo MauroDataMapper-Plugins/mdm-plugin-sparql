@@ -15,21 +15,16 @@
  *
  * SPDX-License-Identifier: Apache-2.0
  */
-package uk.ac.ox.softeng.maurodatamapper.plugins.template
 
-import uk.ac.ox.softeng.maurodatamapper.provider.plugin.AbstractMauroDataMapperPlugin
+package uk.ac.ox.softeng.maurodatamapper.plugins.sparql
 
-class TemplatePlugin extends AbstractMauroDataMapperPlugin {
+class UrlMappings {
 
-    @Override
-    String getName() {
-        'Plugin : XXXXXXX'
-    }
+    static mappings = {
+        group '/api', {
 
-    @Override
-    Closure doWithSpring() {
-        {->
-            // This closure will be passed to grails.spring.BeanBuilder
+            get "/sparql"(controller: 'sparql', action: 'sparql')
+
         }
     }
 }
