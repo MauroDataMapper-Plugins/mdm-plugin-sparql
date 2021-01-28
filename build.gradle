@@ -134,15 +134,15 @@ grailsPublish {
 
 grails {
     plugins {
-        compile group: 'uk.ac.ox.softeng.maurodatamapper', name: 'mdm-core', version: mdmCoreVersion
-        compile group: 'uk.ac.ox.softeng.maurodatamapper', name: 'mdm-plugin-datamodel', version: mdmPluginDataModelVersion
-        compile group: 'uk.ac.ox.softeng.maurodatamapper', name: 'mdm-plugin-profile', version: mdmPluginProfileVersion
-        compile group: 'uk.ac.ox.softeng.maurodatamapper.plugins', name: 'mdm-plugin-profile-schema-org', version: mdmPluginProfileSchemaOrgVersion
+//        compile group: 'uk.ac.ox.softeng.maurodatamapper', name: 'mdm-core', version: mdmCoreVersion
+//        compile group: 'uk.ac.ox.softeng.maurodatamapper', name: 'mdm-plugin-datamodel', version: mdmPluginDataModelVersion
+//        compile group: 'uk.ac.ox.softeng.maurodatamapper', name: 'mdm-plugin-profile', version: mdmPluginProfileVersion
+//        compile group: 'uk.ac.ox.softeng.maurodatamapper.plugins', name: 'mdm-plugin-profile-schema-org', version: mdmPluginProfileSchemaOrgVersion
     }
 }
 
 apply from: 'dependencies.gradle'
-apply from: "${rootDir}/gradle/additions/grails.gradle"
+apply from: "${projectDir}/gradle/additions/grails.gradle"
 
 license {
     header = file("${rootDir}/NOTICE")
