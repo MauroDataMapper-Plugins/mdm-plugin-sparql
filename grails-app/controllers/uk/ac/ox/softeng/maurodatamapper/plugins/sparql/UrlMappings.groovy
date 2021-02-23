@@ -23,6 +23,7 @@ class UrlMappings {
     static mappings = {
         group '/api', {
 
+            post "/sparql"(controller: 'sparql', action: 'sparql')
             get "/sparql"(controller: 'sparql', action: 'sparql')
 
         }
