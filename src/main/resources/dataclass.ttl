@@ -1,0 +1,52 @@
+# Table datamodel.data_class
+map:datamodel_data_class
+    a                         d2rq:ClassMap ;
+    d2rq:dataStorage          map:database ;
+    d2rq:uriPattern           "datamodel/data_class/@@datamodel.data_class.id|urlify@@" ;
+    d2rq:class                mdm:dataclass ;
+    d2rq:classDefinitionLabel "datamodel.data_class" ;
+    d2rq:condition            "datamodel.data_class.data_model_id in (${DATAMODEL_IDS})"
+.
+
+## Properties
+
+map:datamodel_data_class__id
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:datamodel_data_class ;
+    d2rq:property          mdm:id ;
+    d2rq:column            "datamodel.data_class.id" ;
+
+.
+
+map:datamodel_data_class__label
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:datamodel_data_class ;
+    d2rq:property          mdm:label ;
+    d2rq:column            "datamodel.data_class.label" ;
+.
+
+map:datamodel_data_class__description
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:datamodel_data_class ;
+    d2rq:property          mdm:description ;
+    d2rq:column            "datamodel.data_class.description" ;
+.
+
+## Relationships
+
+map:datamodel_data_model__data_class
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:datamodel_data_model ;
+    d2rq:property          mdm:component_class ;
+    d2rq:refersToClassMap  map:datamodel_data_class;
+    d2rq:join              "datamodel.data_model.id <= datamodel.data_class.data_model_id" ;
+.
+
+map:datamodel_data_class__data_class
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:datamodel_data_class ;
+    d2rq:property          mdm:component_class ;
+    d2rq:refersToClassMap  map:datamodel_data_class;
+    d2rq:alias             "datamodel.data_class AS parentDataClass";
+    d2rq:join              "parentDataClass.id <= datamodel.data_class.parent_data_class_id" ;
+.

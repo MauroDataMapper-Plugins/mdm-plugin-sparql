@@ -1,0 +1,36 @@
+# Table datamodel.data_element
+map:datamodel_data_element
+    a                         d2rq:ClassMap ;
+    d2rq:dataStorage          map:database ;
+    d2rq:uriPattern           "datamodel/data_element/@@datamodel.data_element.id|urlify@@" ;
+    d2rq:class                mdm:dataelement ;
+    d2rq:join                 "datamodel.data_element.data_class_id <= datamodel.data_class.id";
+    d2rq:classDefinitionLabel "datamodel.data_element" ;
+    d2rq:condition            "datamodel.data_class.data_model_id in (${DATAMODEL_IDS})"
+.
+
+## Properties
+
+map:datamodel_data_element__id
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:datamodel_data_element ;
+    d2rq:property          mdm:id ;
+    d2rq:column            "datamodel.data_element.id" ;
+
+.
+
+map:datamodel_data_element__label
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:datamodel_data_element ;
+    d2rq:property          mdm:label ;
+    d2rq:column            "datamodel.data_element.label" ;
+.
+
+map:datamodel_data_element__description
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:datamodel_data_element ;
+    d2rq:property          mdm:description ;
+    d2rq:column            "datamodel.data_element.description" ;
+.
+
+## Relationships

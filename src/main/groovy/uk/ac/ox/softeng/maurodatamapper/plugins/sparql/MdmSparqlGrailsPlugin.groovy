@@ -19,12 +19,10 @@ package uk.ac.ox.softeng.maurodatamapper.plugins.sparql
 
 import uk.ac.ox.softeng.maurodatamapper.provider.plugin.AbstractMauroDataMapperPlugin
 
-class MDMSparqlPlugin extends AbstractMauroDataMapperPlugin {
+import grails.plugins.Plugin
 
-    @Override
-    String getName() {
-        'Plugin : SPARQL'
-    }
+class MdmSparqlGrailsPlugin extends Plugin {
+
 
     // the version or versions of Grails the plugin is designed for
     def grailsVersion = "4.0.0 > *"
