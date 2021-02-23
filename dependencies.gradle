@@ -1,6 +1,7 @@
 configurations {
     // configuration that holds jars to include in the jar
     extraLibs
+    compile.extendsFrom(extraLibs)
 }
 dependencies {
 
@@ -18,7 +19,11 @@ dependencies {
 
     testImplementation group: 'uk.ac.ox.softeng.maurodatamapper', name: 'mdm-testing-framework', version: mdmTestingFrameworkVersion
 
-    configurations.compile.extendsFrom(configurations.extraLibs)
+    // Postgres database
+    runtime group: 'org.flywaydb', name: 'flyway-core'
+    runtime "org.hibernate:hibernate-jcache"
+    runtime group: 'org.ehcache', name: 'ehcache'
+    runtime group: 'org.postgresql', name: 'postgresql'
 }
 
 jar {

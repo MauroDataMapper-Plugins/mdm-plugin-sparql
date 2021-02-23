@@ -23,6 +23,11 @@ buildscript {
     }
 }
 
+plugins {
+    id 'project-report'
+    id 'jacoco'
+}
+
 apply plugin: "idea"
 apply plugin: "org.grails.grails-plugin"
 apply plugin: "org.grails.grails-plugin-publish"
@@ -135,25 +140,10 @@ grailsPublish {
 grails {
     plugins {
         compile group: 'uk.ac.ox.softeng.maurodatamapper', name: 'mdm-core', version: mdmCoreVersion
-        compile group: 'uk.ac.ox.softeng.maurodatamapper', name: 'mdm-plugin-datamodel', version: mdmPluginDataModelVersion
-        //compile group: 'uk.ac.ox.softeng.maurodatamapper', name: 'mdm-plugin-terminology', version: mdmPluginTerminologyVersion
+        compile group: 'uk.ac.ox.softeng.maurodatamapper', name: 'mdm-plugin-datamodel', version: mdmCoreVersion
     }
 }
 
 apply from: 'dependencies.gradle'
+apply from: "${projectDir}/gradle/additions/mdm.gradle"
 apply from: "${projectDir}/gradle/additions/grails.gradle"
-
-license {
-    header = file("${rootDir}/NOTICE")
-    excludes([
-        '**/*.gson',
-        '**/*.yml',
-        '**/META-INF/**',
-        '**/*.txt',
-        '**/*.json',
-        '**/*.gml',
-        '**/*.jpeg',
-        '**/*.png',
-        '**/*.xml'
-    ])
-}
