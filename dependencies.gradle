@@ -1,12 +1,12 @@
-configurations {
-    // configuration that holds jars to include in the jar
-    extraLibs
-    compile.extendsFrom(extraLibs)
-}
 dependencies {
 
-
-    extraLibs fileTree(include: ['*.jar'], dir: 'libs')
+    implementation group: 'xerces', name: 'xercesImpl', version: '2.12.1'
+    implementation group: 'com.ibm.icu', name: 'icu4j', version: '68.2'
+    implementation group: 'log4j', name: 'log4j', version: '1.2.17'
+    implementation group: 'org.apache.jena', name: 'jena-arq', version: '2.9.0-incubating'
+    implementation group: 'org.apache.jena', name: 'jena-core', version: '2.7.0-incubating'
+    implementation group: 'org.apache.jena', name: 'jena-iri', version: '0.9.0-incubating'
+    implementation group: 'de.fuberlin.wiwiss', name: 'd2rq', version: '0.8.1'
 
     runtimeOnly "io.methvin:directory-watcher", {
         exclude group: 'com.google.guava', module: 'guava'
@@ -24,20 +24,4 @@ dependencies {
     runtime "org.hibernate:hibernate-jcache"
     runtime group: 'org.ehcache', name: 'ehcache'
     runtime group: 'org.postgresql', name: 'postgresql'
-    implementation group: 'xerces', name: 'xercesImpl', version: '2.12.1'
-    implementation group: 'com.ibm.icu', name: 'icu4j', version: '68.2'
-    implementation group: 'log4j', name: 'log4j', version: '1.2.17'
-    //implementation group: 'com.hp.hpl.jena', name: 'jena', version: '2.6.4'
-    //implementation group: 'com.hp.hpl.jena', name: 'arq', version: '2.8.8'
-    //implementation group: 'com.hp.hpl.jena', name: 'arq-extra', version: '2.7.0'
-    //implementation group: 'com.hp.hpl.jena', name: 'jena-core', version: '2.6.4'
-    //implementation group: 'com.hp.hpl.jena', name: 'iri', version: '0.8'
-
-    configurations.compile.extendsFrom(configurations.extraLibs)
-}
-
-jar {
-    from {
-        configurations.extraLibs.collect { it.isDirectory() ? it : zipTree(it) }
-    }
 }
