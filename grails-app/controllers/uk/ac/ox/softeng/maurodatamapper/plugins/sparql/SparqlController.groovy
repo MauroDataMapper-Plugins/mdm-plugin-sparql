@@ -18,10 +18,6 @@
 package uk.ac.ox.softeng.maurodatamapper.plugins.sparql
 
 import uk.ac.ox.softeng.maurodatamapper.core.traits.controller.ResourcelessMdmController
-import uk.ac.ox.softeng.maurodatamapper.core.traits.controller.UserSecurityPolicyManagerAware
-
-import io.micronaut.http.HttpStatus
-import org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy
 
 import javax.servlet.http.HttpServletResponse
 

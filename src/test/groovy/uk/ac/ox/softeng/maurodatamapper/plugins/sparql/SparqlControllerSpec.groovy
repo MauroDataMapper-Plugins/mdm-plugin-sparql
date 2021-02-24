@@ -15,7 +15,7 @@
  *
  * SPDX-License-Identifier: Apache-2.0
  */
-package uk.ac.ox.softeng.maurodatamapper.plugins.profile.hdruk
+package uk.ac.ox.softeng.maurodatamapper.plugins.sparql
 
 import grails.testing.web.controllers.ControllerUnitTest
 import spock.lang.Specification

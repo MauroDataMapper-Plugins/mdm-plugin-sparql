@@ -24,6 +24,16 @@ dependencies {
     runtime "org.hibernate:hibernate-jcache"
     runtime group: 'org.ehcache', name: 'ehcache'
     runtime group: 'org.postgresql', name: 'postgresql'
+    implementation group: 'xerces', name: 'xercesImpl', version: '2.12.1'
+    implementation group: 'com.ibm.icu', name: 'icu4j', version: '68.2'
+    implementation group: 'log4j', name: 'log4j', version: '1.2.17'
+    //implementation group: 'com.hp.hpl.jena', name: 'jena', version: '2.6.4'
+    //implementation group: 'com.hp.hpl.jena', name: 'arq', version: '2.8.8'
+    //implementation group: 'com.hp.hpl.jena', name: 'arq-extra', version: '2.7.0'
+    //implementation group: 'com.hp.hpl.jena', name: 'jena-core', version: '2.6.4'
+    //implementation group: 'com.hp.hpl.jena', name: 'iri', version: '0.8'
+
+    configurations.compile.extendsFrom(configurations.extraLibs)
 }
 
 jar {

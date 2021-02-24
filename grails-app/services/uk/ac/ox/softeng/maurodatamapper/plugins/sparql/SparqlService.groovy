@@ -9,9 +9,17 @@ import uk.ac.ox.softeng.maurodatamapper.security.UserSecurityPolicyManager
 import com.hp.hpl.jena.query.Query
 import com.hp.hpl.jena.query.QueryExecutionFactory
 import com.hp.hpl.jena.query.QueryFactory
+import com.hp.hpl.jena.query.ResultSet
+import com.hp.hpl.jena.query.ResultSetFormatter
+
+/*import com.hp.hpl.jena.query.Query
+import com.hp.hpl.jena.query.QueryExecutionFactory
+import com.hp.hpl.jena.query.QueryFactory
 import com.hp.hpl.jena.query.QuerySolution
 import com.hp.hpl.jena.query.ResultSet
 import com.hp.hpl.jena.query.ResultSetFormatter
+*/
+
 import de.fuberlin.wiwiss.d2rq.jena.ModelD2RQ
 import grails.core.GrailsApplication
 import grails.gorm.transactions.Transactional

@@ -1,0 +1,43 @@
+# Table datamodel.data_type
+map:datamodel_data_type
+    a                         d2rq:ClassMap ;
+    d2rq:dataStorage          map:database ;
+    d2rq:uriPattern           "datamodel/data_type/@@datamodel.data_type.id|urlify@@" ;
+    d2rq:class                mdm:dataclass ;
+    d2rq:classDefinitionLabel "datamodel.data_type" ;
+    d2rq:condition            "datamodel.data_type.data_model_id in (${DATAMODEL_IDS})"
+.
+
+## Properties
+
+map:datamodel_data_type__id
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:datamodel_data_type ;
+    d2rq:property          mdm:id ;
+    d2rq:column            "datamodel.data_type.id" ;
+
+.
+
+map:datamodel_data_type__label
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:datamodel_data_type ;
+    d2rq:property          mdm:label ;
+    d2rq:column            "datamodel.data_type.label" ;
+.
+
+map:datamodel_data_type__description
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:datamodel_data_type ;
+    d2rq:property          mdm:description ;
+    d2rq:column            "datamodel.data_type.description" ;
+.
+
+## Relationships
+
+map:datamodel_data_model__data_type
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:datamodel_data_model ;
+    d2rq:property          mdm:component_type ;
+    d2rq:refersToClassMap  map:datamodel_data_type;
+    d2rq:join              "datamodel.data_model.id <= datamodel.data_type.data_model_id" ;
+.
