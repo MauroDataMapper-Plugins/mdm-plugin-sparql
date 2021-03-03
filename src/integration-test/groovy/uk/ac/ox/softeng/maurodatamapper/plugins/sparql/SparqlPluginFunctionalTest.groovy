@@ -17,19 +17,25 @@
  */
 package uk.ac.ox.softeng.maurodatamapper.plugins.sparql
 
-import grails.testing.web.controllers.ControllerUnitTest
-import spock.lang.Specification
+import uk.ac.ox.softeng.maurodatamapper.test.functional.BaseFunctionalSpec
+import grails.testing.mixin.integration.Integration
+import groovy.util.logging.Slf4j
 
-class SparqlControllerSpec extends Specification implements ControllerUnitTest<SparqlController> {
+@Slf4j
+@Integration
+class SparqlPluginFunctionalTest extends BaseFunctionalSpec {
 
-    def setup() {
+    // TODO:
+    //  Difficult to do proper integration tests because we rely on the JDBC / Postgres connection
+    //  Putting a trivial test here as a placeholder
+
+    @Override
+    String getResourcePath() {
+        'sparql'
     }
 
-    def cleanup() {
-    }
-
-    void "test something"() {
-        expect:"fix me"
-        true == false
+    void 'empty test'() {
+        expect:
+        1 == 1
     }
 }

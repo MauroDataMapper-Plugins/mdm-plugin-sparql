@@ -23,35 +23,24 @@ import javax.servlet.http.HttpServletResponse
 
 
 class SparqlController implements ResourcelessMdmController {
-	static responseFormats = ['json', 'xml']
 
     SparqlService sparqlService
 
-
-
     def sparql() {
 
-//        System.err.println(applicationContext.dataSource)
-//        System.err.println(((TransactionAwareDataSourceProxy) applicationContext.dataSource).getConnection().clientInfo)
-
-
         try {
-
-            String query = ''
+            String query
             if(params['query']) {
                 query = params['query']
             } else {
                 query = request.reader.text
             }
-            //System.err.println("Query: " + query)
+            log.info("Query: " + query)
             String accept = request.getHeader("Accept")
             sparqlService.runQuery(currentUserSecurityPolicyManager, response.outputStream, query, accept)
 
             response.status = HttpServletResponse.SC_OK
             response.contentType = 'application/json;charset=UTF-8'
-
-
-            //response.setHeader "Content-disposition", "attachment; filename=rcCandidate.csv"
 
         } catch (Exception e) {
             e.printStackTrace()
@@ -59,8 +48,6 @@ class SparqlController implements ResourcelessMdmController {
         }
         response.outputStream.flush()
         response.outputStream.close()
-
-        //respond(view: "sparql/response.gson")
     }
 
 }

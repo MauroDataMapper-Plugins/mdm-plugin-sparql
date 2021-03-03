@@ -41,3 +41,13 @@ map:datamodel_data_model__data_type
     d2rq:refersToClassMap  map:datamodel_data_type;
     d2rq:join              "datamodel.data_model.id <= datamodel.data_type.data_model_id" ;
 .
+
+## Facets
+
+map:datamodel_data_type__metadata
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:datamodel_data_type ;
+    d2rq:dynamicProperty   "http://metadata-catalogue.org/@@core.metadata.namespace@@/@@core.metadata.key@@" ;
+    d2rq:join              "datamodel.data_type.id <= core.metadata.catalogue_item_id" ;
+    d2rq:column            "core.metadata.value"
+.
