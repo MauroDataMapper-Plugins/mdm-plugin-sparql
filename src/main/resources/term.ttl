@@ -1,0 +1,88 @@
+# Table terminology.term
+map:terminology_term
+    a                         d2rq:ClassMap ;
+    d2rq:dataStorage          map:database ;
+    d2rq:uriPattern           "terminology/term/@@terminology.term.id|urlify@@" ;
+    d2rq:class                mdm:term ;
+    d2rq:classDefinitionLabel "terminology.term" ;
+    d2rq:condition            "terminology.term.terminology_id in (${TERMINOLOGY_IDS})"
+.
+
+## Properties
+
+map:terminology_term__id
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:terminology_term ;
+    d2rq:property          mdm:id ;
+    d2rq:column            "terminology.term.id" ;
+
+.
+
+map:terminology_term__label
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:terminology_term ;
+    d2rq:property          mdm:label ;
+    d2rq:column            "terminology.term.label" ;
+.
+
+map:terminology_term__description
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:terminology_term ;
+    d2rq:property          mdm:description ;
+    d2rq:column            "terminology.term.description" ;
+.
+
+map:terminology_term__code
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:terminology_term ;
+    d2rq:property          mdm:code ;
+    d2rq:column            "terminology.term.code" ;
+.
+
+map:terminology_term__definition
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:terminology_term ;
+    d2rq:property          mdm:definition ;
+    d2rq:column            "terminology.term.definition" ;
+.
+
+map:terminology_term__url
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:terminology_term ;
+    d2rq:property          mdm:url ;
+    d2rq:column            "terminology.term.url" ;
+.
+
+
+## Facets
+
+map:terminology_term__metadata
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:terminology_term ;
+    d2rq:dynamicProperty   "http://metadata-catalogue.org/@@core.metadata.namespace@@/@@core.metadata.key@@" ;
+    d2rq:join              "terminology.term.id <= core.metadata.catalogue_item_id" ;
+    d2rq:column            "core.metadata.value"
+.
+
+
+## Relationships
+
+map:terminology_term__term_of
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:terminology_term ;
+    d2rq:property          mdm:term_of ;
+    d2rq:refersToClassMap  map:terminology_terminology;
+    d2rq:join              "terminology.terminology.id <= terminology.term.terminology_id" ;
+.
+
+map:terminology_term__relationship
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:terminology_term ;
+    d2rq:dynamicProperty   "http://metadata-catalogue.org/@@terminology.term_relationship_type.label@@" ;
+    d2rq:refersToClassMap  map:terminology_term;
+    d2rq:alias             "terminology.term AS sourceTerm";
+    d2rq:join              "terminology.term.id <= terminology.term_relationship.source_term_id" ;
+    d2rq:join              "sourceTerm.id <= terminology.term_relationship.target_term_id" ;
+    d2rq:join              "terminology.term_relationship.relationship_type_id <= terminology.term_relationship_type.id" ;
+
+.

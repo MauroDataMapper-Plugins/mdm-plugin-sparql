@@ -1,0 +1,76 @@
+# Table datamodel.enumeration_value
+map:datamodel_enumeration_value
+    a                         d2rq:ClassMap ;
+    d2rq:dataStorage          map:database ;
+    d2rq:uriPattern           "datamodel/enumeration_value/@@datamodel.enumeration_value.id|urlify@@" ;
+    d2rq:class                mdm:enumerationvalue ;
+    d2rq:join                 "datamodel.enumeration_value.enumeration_type_id <= datamodel.data_type.id";
+    d2rq:classDefinitionLabel "datamodel.enumeration_value" ;
+    d2rq:condition            "datamodel.data_type.data_model_id in (${DATAMODEL_IDS})"
+.
+
+## Properties
+
+map:datamodel_enumeration_value__id
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:datamodel_enumeration_value ;
+    d2rq:property          mdm:id ;
+    d2rq:column            "datamodel.enumeration_value.id" ;
+
+.
+
+map:datamodel_enumeration_value__label
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:datamodel_enumeration_value ;
+    d2rq:property          mdm:label ;
+    d2rq:column            "datamodel.enumeration_value.label" ;
+.
+
+map:datamodel_enumeration_value__key
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:datamodel_enumeration_value ;
+    d2rq:property          mdm:key ;
+    d2rq:column            "datamodel.enumeration_value.key" ;
+.
+
+map:datamodel_enumeration_value__value
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:datamodel_enumeration_value ;
+    d2rq:property          mdm:value ;
+    d2rq:column            "datamodel.enumeration_value.value" ;
+.
+
+map:datamodel_enumeration_value__category
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:datamodel_enumeration_value ;
+    d2rq:property          mdm:category ;
+    d2rq:column            "datamodel.enumeration_value.category" ;
+.
+
+
+map:datamodel_enumeration_value__description
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:datamodel_enumeration_value ;
+    d2rq:property          mdm:description ;
+    d2rq:column            "datamodel.enumeration_value.description" ;
+.
+
+## Relationships
+
+map:datamodel_data_type__enumeration_value
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:datamodel_data_type ;
+    d2rq:property          mdm:component_value ;
+    d2rq:refersToClassMap  map:datamodel_enumeration_value;
+    d2rq:join              "datamodel.data_type.id <= datamodel.enumeration_value.enumeration_type_id" ;
+.
+
+## Facets
+
+map:datamodel_enumeration_value__metadata
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:datamodel_enumeration_value ;
+    d2rq:dynamicProperty   "http://metadata-catalogue.org/@@core.metadata.namespace@@/@@core.metadata.key@@" ;
+    d2rq:join              "datamodel.enumeration_value.id <= core.metadata.catalogue_item_id" ;
+    d2rq:column            "core.metadata.value"
+.

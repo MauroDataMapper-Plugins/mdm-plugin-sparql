@@ -1,0 +1,44 @@
+# Table datamodel.data_model
+map:datamodel_data_model
+    a                         d2rq:ClassMap ;
+    d2rq:dataStorage          map:database ;
+    d2rq:uriPattern           "datamodel/data_model/@@datamodel.data_model.id|urlify@@" ;
+    d2rq:class                mdm:datamodel ;
+    d2rq:classDefinitionLabel "datamodel.data_model" ;
+    d2rq:condition            "datamodel.data_model.id in (${DATAMODEL_IDS})"
+.
+
+## Properties
+
+map:datamodel_data_model__id
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:datamodel_data_model ;
+    d2rq:property          mdm:id ;
+    d2rq:column            "datamodel.data_model.id" ;
+
+.
+
+map:datamodel_data_model__label
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:datamodel_data_model ;
+    d2rq:property          mdm:label ;
+    d2rq:column            "datamodel.data_model.label" ;
+.
+
+map:datamodel_data_model__description
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:datamodel_data_model ;
+    d2rq:property          mdm:description ;
+    d2rq:column            "datamodel.data_model.description" ;
+.
+
+
+## Facets
+
+map:datamodel_data_model__metadata
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:datamodel_data_model ;
+    d2rq:dynamicProperty   "http://metadata-catalogue.org/@@core.metadata.namespace@@/@@core.metadata.key@@" ;
+    d2rq:join              "datamodel.data_model.id <= core.metadata.catalogue_item_id" ;
+    d2rq:column            "core.metadata.value"
+.

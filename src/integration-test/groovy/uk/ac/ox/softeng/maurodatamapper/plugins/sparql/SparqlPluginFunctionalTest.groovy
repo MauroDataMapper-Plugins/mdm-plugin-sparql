@@ -17,14 +17,25 @@
  */
 package uk.ac.ox.softeng.maurodatamapper.plugins.sparql
 
-class UrlMappings {
+import uk.ac.ox.softeng.maurodatamapper.test.functional.BaseFunctionalSpec
+import grails.testing.mixin.integration.Integration
+import groovy.util.logging.Slf4j
 
-    static mappings = {
-        group '/api', {
+@Slf4j
+@Integration
+class SparqlPluginFunctionalTest extends BaseFunctionalSpec {
 
-            post "/sparql"(controller: 'sparql', action: 'sparql')
-            get "/sparql"(controller: 'sparql', action: 'sparql')
+    // TODO:
+    //  Difficult to do proper integration tests because we rely on the JDBC / Postgres connection
+    //  Putting a trivial test here as a placeholder
 
-        }
+    @Override
+    String getResourcePath() {
+        'sparql'
+    }
+
+    void 'empty test'() {
+        expect:
+        1 == 1
     }
 }

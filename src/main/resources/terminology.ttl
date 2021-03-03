@@ -1,0 +1,44 @@
+# Table terminology.terminology
+map:terminology_terminology
+    a                         d2rq:ClassMap ;
+    d2rq:dataStorage          map:database ;
+    d2rq:uriPattern           "terminology/terminology/@@terminology.terminology.id|urlify@@" ;
+    d2rq:class                mdm:terminology ;
+    d2rq:classDefinitionLabel "terminology.terminology" ;
+    d2rq:condition            "terminology.terminology.id in (${TERMINOLOGY_IDS})"
+.
+
+## Properties
+
+map:terminology_terminology__id
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:terminology_terminology ;
+    d2rq:property          mdm:id ;
+    d2rq:column            "terminology.terminology.id" ;
+
+.
+
+map:terminology_terminology__label
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:terminology_terminology ;
+    d2rq:property          mdm:label ;
+    d2rq:column            "terminology.terminology.label" ;
+.
+
+map:terminology_terminology__description
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:terminology_terminology ;
+    d2rq:property          mdm:description ;
+    d2rq:column            "terminology.terminology.description" ;
+.
+
+
+## Facets
+
+map:terminology_terminology__metadata
+    a                      d2rq:PropertyBridge ;
+    d2rq:belongsToClassMap map:terminology_terminology ;
+    d2rq:dynamicProperty   "http://metadata-catalogue.org/@@core.metadata.namespace@@/@@core.metadata.key@@" ;
+    d2rq:join              "terminology.terminology.id <= core.metadata.catalogue_item_id" ;
+    d2rq:column            "core.metadata.value"
+.

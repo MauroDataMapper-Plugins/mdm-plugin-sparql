@@ -17,14 +17,27 @@
  */
 package uk.ac.ox.softeng.maurodatamapper.plugins.sparql
 
-class UrlMappings {
+import uk.ac.ox.softeng.maurodatamapper.test.unit.BaseUnitSpec
 
-    static mappings = {
-        group '/api', {
+import grails.testing.services.ServiceUnitTest
+import org.springframework.beans.factory.annotation.Autowired
+import spock.lang.Specification
 
-            post "/sparql"(controller: 'sparql', action: 'sparql')
-            get "/sparql"(controller: 'sparql', action: 'sparql')
+class SparqlServiceSpec extends BaseUnitSpec implements ServiceUnitTest<SparqlService>{
 
-        }
+
+    def setup() {
+        mockArtefact(SparqlService)
+    }
+
+    def cleanup() {
+    }
+
+    void "test contents of mapping file"() {
+        expect:"mapping file contains prefix"
+            service.mappingFile.contains("@prefix mdm:   <http://metadata-catalogue.org/> .")
+
+        and:"mapping file contains datamodel mapping"
+        service.mappingFile.contains("map:datamodel_data_model")
     }
 }
