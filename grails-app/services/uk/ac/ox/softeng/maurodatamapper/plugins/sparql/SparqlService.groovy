@@ -32,9 +32,6 @@ import de.fuberlin.wiwiss.d2rq.jena.ModelD2RQ
 import grails.core.GrailsApplication
 import grails.gorm.transactions.Transactional
 import grails.io.IOUtils
-import grails.util.Environment
-import org.apache.commons.collections.functors.ExceptionPredicate
-import org.postgresql.jdbc.PgDatabaseMetaData
 import org.springframework.beans.factory.annotation.Autowired
 
 import javax.sql.DataSource
