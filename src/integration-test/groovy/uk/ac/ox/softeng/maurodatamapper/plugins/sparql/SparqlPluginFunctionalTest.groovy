@@ -18,6 +18,7 @@
 package uk.ac.ox.softeng.maurodatamapper.plugins.sparql
 
 import uk.ac.ox.softeng.maurodatamapper.test.functional.BaseFunctionalSpec
+
 import grails.testing.mixin.integration.Integration
 import groovy.util.logging.Slf4j
 

@@ -17,7 +17,6 @@
  */
 package uk.ac.ox.softeng.maurodatamapper.plugins.sparql
 
-import uk.ac.ox.softeng.maurodatamapper.provider.plugin.AbstractMauroDataMapperPlugin
 
 import grails.plugins.Plugin
 

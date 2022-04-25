@@ -20,8 +20,6 @@ package uk.ac.ox.softeng.maurodatamapper.plugins.sparql
 import uk.ac.ox.softeng.maurodatamapper.test.unit.BaseUnitSpec
 
 import grails.testing.services.ServiceUnitTest
-import org.springframework.beans.factory.annotation.Autowired
-import spock.lang.Specification
 
 class SparqlServiceSpec extends BaseUnitSpec implements ServiceUnitTest<SparqlService>{
 
