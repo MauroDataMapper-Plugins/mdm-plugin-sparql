@@ -109,7 +109,7 @@ pipeline {
             }
             steps {
                 script {
-                    sh "./gradlew publish"
+                    sh "./gradlew --build-cache publish"
                 }
             }
         }
