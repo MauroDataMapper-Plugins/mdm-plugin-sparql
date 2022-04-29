@@ -19,9 +19,11 @@ package uk.ac.ox.softeng.maurodatamapper.plugins.sparql
 
 import uk.ac.ox.softeng.maurodatamapper.core.traits.controller.ResourcelessMdmController
 
+import groovy.util.logging.Slf4j
+
 import javax.servlet.http.HttpServletResponse
 
-
+@Slf4j
 class SparqlController implements ResourcelessMdmController {
 
     SparqlService sparqlService
@@ -43,7 +45,7 @@ class SparqlController implements ResourcelessMdmController {
             response.contentType = 'application/json;charset=UTF-8'
 
         } catch (Exception e) {
-            e.printStackTrace()
+            log.error("Error handling sparql", e)
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, e.getMessage())
         }
         response.outputStream.flush()
