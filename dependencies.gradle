@@ -6,7 +6,7 @@ dependencies {
     implementation(group: 'org.apache.jena', name: 'jena-arq', version: '2.9.0-incubating'){
         exclude group: 'org.slf4j', module:'slf4j-log4j12'
     }
-    implementation(group: 'org.apache.jena', name: 'jena-core', version: '2.7.0-incubating'){
+    implementation(group: 'org.apache.jena', name: 'jena-core', version: '4.10.0'){
         exclude group: 'org.slf4j', module:'slf4j-log4j12'
     }
     implementation(group: 'org.apache.jena', name: 'jena-iri', version: '0.9.0-incubating'){
